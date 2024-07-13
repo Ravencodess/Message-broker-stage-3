@@ -18,11 +18,11 @@ def logger(event):
     with open("/var/log/messaging_system.log", "a") as log_file:
         log_file.write(f"{datetime.now()}: {event}\n")
 
-@app.get("/")
-def root():
-    return {"Hello": "Prime",
-            "please": "use",
-            "the": "/docs"}
+#@app.get("/")
+#def root():
+#    return {"Hello": "Prime",
+#            "please": "use",
+#            "the": "/docs"}
 
 
 @app.get("/api/v1")
