@@ -10,7 +10,7 @@ app = FastAPI()
 
 celery = Celery(
     "tasks",
-    broker="amqp://guest:guest@localhost:5672//"
+    broker="amqp://guest:guest@localhost:5672//",
     backend="rpc://"
 )
 
