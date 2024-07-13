@@ -11,7 +11,7 @@ app = FastAPI()
 celery = Celery(
     "tasks",
     broker="amqp://guest:guest@localhost:5672//"
-    # backend="rpc://"
+    backend="rpc://"
 )
 
 def logger(event):
