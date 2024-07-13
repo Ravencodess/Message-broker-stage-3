@@ -34,7 +34,7 @@ def test(sendmail: Optional[str] = None, talktome: Optional[str] = None):
             response["sendmail"] = f"no mail provided"
         else:
             try: 
-                logger(f"Sending mail to {sendmail}  ......")
+                logger(f"Sending mail to {sendmail}  .....")
                 result = send_mail.delay(sendmail)
                 logger(f"{result.get()}")
             except Exception as e:
