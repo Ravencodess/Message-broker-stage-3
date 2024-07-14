@@ -8,12 +8,6 @@ from fastapi.responses import PlainTextResponse
 
 app = FastAPI()
 
-celery = Celery(
-    "tasks",
-    broker="pyamqp://guest:guest@localhost:5672//",
-    backend="rpc://"
-)
-
 def logger(event):
     with open("/var/log/messaging_system.log", "a") as log_file:
         log_file.write(f"{datetime.now()}: {event}\n")
