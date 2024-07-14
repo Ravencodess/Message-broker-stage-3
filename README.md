@@ -43,8 +43,8 @@ A FastAPI-based messaging system with Celery task queue integration for sending 
 
 1. **Clone the repository:**
 ```
-    git clone https://github.com/yourusername/messaging-system.git
-    cd messaging-system
+    git clone https://github.com/Ravencodess/message-broker-stage-3
+    cd message-broker-stage-3
 ```
 2. **Create and activate a virtual environment:**
 ```
