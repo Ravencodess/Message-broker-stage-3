@@ -10,7 +10,7 @@ app = FastAPI()
 
 celery = Celery(
     "tasks",
-    broker="amqp://guest:guest@localhost:5672//",
+    broker="pyamqp://guest:guest@localhost:5672//",
     backend="rpc://"
 )
 
@@ -26,14 +26,10 @@ def test(sendmail: Optional[str] = None, talktome: Optional[str] = None):
         if sendmail == "":
             response["sendmail"] = f"no mail provided"
         else:
-            try:
-                logger(f"Sending mail to {sendmail}  .....")
-                result = send_mail.delay(sendmail)
-                logger(f"{result.get()}")
-            except Exception as e:
-                logger(f"Failed to send mail {e}")
-                logger(f"{result.get()}")
-            response["sendmail"] = f"logged action to /logs"
+            logger(f"Sending mail to {sendmail}  .....")
+            result = send_mail.delay(sendmail)
+            logger(f"{result.get()}")
+        response["sendmail"] = f"logged action to /logs"
 
     if talktome is not None:
         logger(talktome)

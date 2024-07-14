@@ -10,7 +10,7 @@ load_dotenv()
 
 celery = Celery(
     "tasks",
-    broker="amqp://guest:guest@localhost:5672//",
+    broker="pyamqp://guest:guest@localhost:5672//",
     backend="rpc://"
 )
 
@@ -37,4 +37,4 @@ def send_mail(email):
         return f"Email sent to {email_receiver}"
     except Exception as e:
         return f"Failed to send email to {email_receiver}: {e}"
-    
+
