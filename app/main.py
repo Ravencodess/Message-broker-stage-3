@@ -18,14 +18,7 @@ def logger(event):
     with open("/var/log/messaging_system.log", "a") as log_file:
         log_file.write(f"{datetime.now()}: {event}\n")
 
-#@app.get("/")
-#def root():
-#    return {"Hello": "Prime",
-#            "please": "use",
-#            "the": "/docs"}
-
-
-@app.get("/api/v1")
+@app.get("/")
 def test(sendmail: Optional[str] = None, talktome: Optional[str] = None):
     response = {}
 
@@ -33,7 +26,7 @@ def test(sendmail: Optional[str] = None, talktome: Optional[str] = None):
         if sendmail == "":
             response["sendmail"] = f"no mail provided"
         else:
-            try: 
+            try:
                 logger(f"Sending mail to {sendmail}  .....")
                 result = send_mail.delay(sendmail)
                 logger(f"{result.get()}")
@@ -45,7 +38,7 @@ def test(sendmail: Optional[str] = None, talktome: Optional[str] = None):
     if talktome is not None:
         logger(talktome)
         response["talktome"] = f"logged action to /logs"
-        
+
     if sendmail is None and talktome is None:
         response["Default"] = "no parameters provided"
     return response
