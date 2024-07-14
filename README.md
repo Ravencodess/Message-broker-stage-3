@@ -60,7 +60,7 @@ A FastAPI-based messaging system with Celery task queue integration for sending 
     Create a `.env` file in the project root and add the following:
 ```
     email_sender=your_email@example.com
-    email_password=your_email_password
+    email_password=your_smtp-email_token
 ```
 5. **Run RabbitMQ server:**
 
