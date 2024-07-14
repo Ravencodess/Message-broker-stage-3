@@ -28,7 +28,7 @@ A FastAPI-based messaging system with Celery task queue integration for sending 
     ├── app
     │   ├── Main.py
     │   └── Tasks.py
-    └── Requirements.txt
+    └── requirements.txt
 ```
 
 ## Getting Started
@@ -53,7 +53,7 @@ A FastAPI-based messaging system with Celery task queue integration for sending 
 ```
 3. **Install dependencies:**
 ```
-    pip install -r Requirements.txt
+    pip install -r requirements.txt
 ```
 4. **Set up environment variables:**
 
