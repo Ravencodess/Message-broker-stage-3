@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from celery import Celery
 from typing import Optional
 from datetime import datetime
 from tasks import send_mail
